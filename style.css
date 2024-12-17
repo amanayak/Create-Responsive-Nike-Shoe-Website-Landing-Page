@@ -1,0 +1,343 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+/* Root Variables */
+:root {
+  --primary-color: #f8ba15;
+  --secondary-color: #bb9235;
+  --gray-color: #c9c9ca;
+  --black-color: #161717;
+  --white-color: #fff;
+  --gradient-color: radial-gradient(circle, #343637 0%, #000000 100%);
+  --glass-color: rgba(0, 0, 0, 0.2);
+
+}
+
+/*BUTTON*/
+
+.shop-btn {
+  background: none;
+  color: var(--gray-color);
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  overflow: visible;
+  transition: color 0.3s ease;
+}
+
+.shop-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  border: 2px solid var(--primary-color);      
+  border-color: transparent;  
+  transition: border-color 0.3s ease, width 0.3s ease;
+}
+
+.shop-btn:hover {
+  color: var(--primary-color);  
+}
+
+.shop-btn:hover::after {
+  border-color: var(--primary-color); 
+  width: 100%; 
+}
+
+
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: var(--gradient-color);
+  color: var(--gray-color);
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+body::before{
+  content: "NIKEAIR";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12rem;
+  font-weight: 600;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  letter-spacing: 10px;
+  color: var(--gray-color);
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.05;
+}
+ 
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px 50px;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  background: var(--glass-color);
+  backdrop-filter: blur(15px);
+}
+
+.header__logo-menu {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.header__menu-icon {
+  font-size: 24px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.header__logo img{
+  width: 40px;
+}
+ 
+.navbar {
+  display: flex;
+}
+
+.navbar__item {
+  margin: 0 20px;
+  position: relative;
+}
+
+.navbar__links {
+  color: var(--gray-color);
+  font-size: 16px;
+  position: relative;
+}
+
+.navbar__links:hover,
+.navbar__item--active .navbar__links {
+  color: var(--primary-color);
+}
+
+.navbar__links::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.navbar__links:hover::after,
+.navbar__item--active .navbar__links::after {
+  width: 50%;
+}
+
+.hero{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 200px 50px;
+  gap: 0px;
+}
+
+.hero__image{
+  width: 85%;
+}
+
+.hero__image img{
+  width: 90%;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+  margin-top: -80px;
+}
+
+.hero__content{
+  width: 35%;
+  text-align: left;
+}
+
+.hero__title{
+  font-size: 50px;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+  text-transform: uppercase;
+}
+
+.hero__description{
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+.btn-hero{
+  padding: 15px 30px;
+  font-size: 15px;
+  background: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s, transform ease;
+}
+
+.btn-hero:hover{
+  background: var(--primary-color);
+  color: var(--black-color);
+  transform: scale(1.1);
+}
+
+.social-icons{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.social-icon{
+  color: var(--gray-color);
+  font-size: 24px;
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover{
+  color: var(--primary-color);
+}
+
+.sliding-card{
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 40%;
+  height: 100%;
+  background: var(--glass-color);
+  backdrop-filter: blur(15px);
+  color: var(--gray-color);
+  padding: 60px;
+  overflow-y: auto;
+  transition: left 0.5s ease-in-out;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, .5);
+  z-index: 999;
+  overflow: hidden;
+}
+
+.sliding-card__content{
+  display: flex;
+  flex-direction: column;
+  margin-top: 80px;
+}
+
+.sliding-card__subtitle{
+  font-size: 18px;
+  font-style: initial;
+  margin-bottom: 15px;
+}
+
+.sliding-card__title{
+  font-size: 35px;
+  font-weight: bolder;
+  margin-bottom: 20px;
+  color: var(--secondary-color);
+}
+
+.sliding-card__description{
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+hr{
+  border: 0.9px solid var(--white-color);
+  margin: 20px 0;
+}
+
+.price-section{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.price-section span{
+  font-size: 20px;
+  color: var(--secondary-color);
+}
+
+.sliding-card__images{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.sliding-card__images img{
+  width: 30%;
+  height: auto;
+  border: 10px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.navigation-dots{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.dot{
+  width: 10px;
+  height: 10px;
+  background: var(--white-color);
+  border-radius: 50%;
+  opacity: 0.5;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.dot.active{
+  opacity: 1;
+}
+
+.card-navigation{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding: 10px 15px;
+  background: var(--black-color);
+  border: 2px solid #343637;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .5);
+}
+
+.card-navigation .prev,
+.card-navigation .next{
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px 15px;
+  background: var(--primary-color);
+  color: var(--black-color);
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.card-navigation .prev:hover,
+.card-navigation .next:hover{
+  background: var(--secondary-color);
+  color: var(--white-color);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, .3);
+}
